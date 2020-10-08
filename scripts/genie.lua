@@ -578,6 +578,7 @@ or _OPTIONS["with-combined-examples"] then
 		, "40-svt"
 		, "41-tess"
 		, "42-bunnylod"
+		, "43-leb"
 		)
 
 	-- 17-drawstress requires multithreading, does not compile for singlethreaded wasm
