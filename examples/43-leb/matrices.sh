@@ -62,6 +62,15 @@ float mtxGetElement(mat4 _0, uint column, uint row)
 #endif // BGFX_SHADER_LANGUAGE_GLSL
 }
 
+float mtxGetElement(mat3 _0, uint column, uint row)
+{
+#if BGFX_SHADER_LANGUAGE_GLSL
+    return _0[column][row];
+#else
+    return _0[row][column];
+#endif // BGFX_SHADER_LANGUAGE_GLSL
+}
+
 
 #endif // __cplusplus
 

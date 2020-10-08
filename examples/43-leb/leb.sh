@@ -442,19 +442,12 @@ mat4x3 leb_DecodeNodeAttributeArray_Square(in const cbt_Node node, in const mat4
  */
 void DecodeTriangleVertices(in const cbt_Node node, out vec4 triangleVertices[3])
 {
-    /*vec3 xPos = vec3(0, 0, 1), yPos = vec3(1, 0, 0);
-    
-    mat3 pos = leb_DecodeNodeAttributeArray_Square(node, mtxFromCols(xPos, yPos, vec3(0.0, 0.0, 0.0)));
-    vec4 p1 = vec4(pos[0][0], pos[1][0], 0.0, 1.0);
-    vec4 p2 = vec4(pos[0][1], pos[1][1], 0.0, 1.0);
-    vec4 p3 = vec4(pos[0][2], pos[1][2], 0.0, 1.0);*/
-    
     vec3 xPos = vec3(0, 0, 1), yPos = vec3(1, 0, 0);
     
     mat3 pos = leb_DecodeNodeAttributeArray_Square(node, mtxFromCols(xPos, yPos, vec3(0.0, 0.0, 0.0)));
-    vec4 p1 = vec4(pos[0][0], pos[0][1], 0.0, 1.0);
-    vec4 p2 = vec4(pos[1][0], pos[1][1], 0.0, 1.0);
-    vec4 p3 = vec4(pos[2][0], pos[2][1], 0.0, 1.0);
+    vec4 p1 = vec4(mtxGetElement(pos, 0, 0), mtxGetElement(pos, 1, 0), 0.0, 1.0);
+    vec4 p2 = vec4(mtxGetElement(pos, 0, 1), mtxGetElement(pos, 1, 1), 0.0, 1.0);
+    vec4 p3 = vec4(mtxGetElement(pos, 0, 2), mtxGetElement(pos, 1, 2), 0.0, 1.0);
 
     p1.z = u_DmapFactor * texture2DLod(u_DmapSampler, p1.xy, 0).r;
     p2.z = u_DmapFactor * texture2DLod(u_DmapSampler, p2.xy, 0).r;

@@ -23,8 +23,7 @@ void loadFrustum(out Frustum f, mat4 mvp)
 			f.planes[i*2+j].y = mtxGetElement(mvp, 1, 3) + (j == 0 ? mtxGetElement(mvp, 1, i) : -mtxGetElement(mvp, 1, i));
 			f.planes[i*2+j].z = mtxGetElement(mvp, 2, 3) + (j == 0 ? mtxGetElement(mvp, 2, i) : -mtxGetElement(mvp, 2, i));
 			f.planes[i*2+j].w = mtxGetElement(mvp, 3, 3) + (j == 0 ? mtxGetElement(mvp, 3, i) : -mtxGetElement(mvp, 3, i));
-			vec4 tmp = f.planes[i*2+j];
-			f.planes[i*2+j]*= normalize(vec4(tmp.x, tmp.y, tmp.z, 0.0));
+			f.planes[i*2+j]*= length(f.planes[i*2+j].xyz);
 		}
 	}
 }

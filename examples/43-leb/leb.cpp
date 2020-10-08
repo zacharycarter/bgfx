@@ -126,7 +126,7 @@ namespace
 			init.resolution.width = m_width;
 			init.resolution.height = m_height;
 			init.resolution.reset = m_reset;
-			// init.type = bgfx::RendererType::Direct3D12;
+			// init.type = bgfx::RendererType::OpenGL;
 			bgfx::init(init);
 
 			m_dmap = {"textures/kauai.png", 1.0f};

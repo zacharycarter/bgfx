@@ -1,4 +1,6 @@
 #include "leb_common.sh"
+#include "fcull.sh"
+#include "lod.sh"
 
 SAMPLER2D(u_DmapSampler, 0);
 BUFFER_RW(u_CbtBuffer, uint, 1);

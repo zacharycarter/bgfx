@@ -2,6 +2,7 @@ $input a_position
 $output v_texcoord0, v_wpos
 
 #include "leb_common.sh"
+#include "fcull.sh"
 
 SAMPLER2D(u_DmapSampler, 0);
 BUFFER_RO(u_CbtBuffer, uint, 1);
