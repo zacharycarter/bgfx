@@ -46,7 +46,7 @@ namespace
 	enum
 	{
 		TERRAIN_DMAP_SAMPLER,
-		TERRAIN_SMAP_SAMPLER,
+        TERRAIN_SMAP_SAMPLER,
 
 		SAMPLER_COUNT
 	};
@@ -349,11 +349,12 @@ namespace
 
 				// render terrain
                 bgfx::setTexture(0, m_samplers[TERRAIN_DMAP_SAMPLER], m_textures[TEXTURE_DMAP], BGFX_SAMPLER_U_CLAMP | BGFX_SAMPLER_V_CLAMP);
+                bgfx::setTexture(1, m_samplers[TERRAIN_SMAP_SAMPLER], m_textures[TEXTURE_DMAP], BGFX_SAMPLER_U_CLAMP | BGFX_SAMPLER_V_CLAMP);
 
 				bgfx::setTransform(model);
                 bgfx::setVertexBuffer(0, m_meshletVertices);
                 bgfx::setIndexBuffer(m_meshletIndices);
-				bgfx::setBuffer(1, m_bufferLeb, bgfx::Access::Read);
+				bgfx::setBuffer(2, m_bufferLeb, bgfx::Access::Read);
 				bgfx::setState(BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_Z | BGFX_STATE_DEPTH_TEST_LESS);
 
 				m_uniforms.submit();
@@ -483,7 +484,7 @@ namespace
 		void loadPrograms()
 		{
 			m_samplers[TERRAIN_DMAP_SAMPLER] = bgfx::createUniform("u_DmapSampler", bgfx::UniformType::Sampler);
-			// m_samplers[TERRAIN_SMAP_SAMPLER] = bgfx::createUniform("u_SmapSampler", bgfx::UniformType::Sampler);
+			m_samplers[TERRAIN_SMAP_SAMPLER] = bgfx::createUniform("u_SmapSampler", bgfx::UniformType::Sampler);
 
 			m_uniforms.init();
 

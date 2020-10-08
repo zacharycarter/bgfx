@@ -2,7 +2,7 @@ $input v_texcoord0, v_wpos
 
 #include "leb_common.sh"
 
-SAMPLER2D(u_DmapSampler, 0);
+SAMPLER2D(u_DmapSampler, 1);
 
 void main()
 {

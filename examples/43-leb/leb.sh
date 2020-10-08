@@ -449,9 +449,9 @@ void DecodeTriangleVertices(in const cbt_Node node, out vec4 triangleVertices[3]
     vec4 p2 = vec4(mtxGetElement(pos, 0, 1), mtxGetElement(pos, 1, 1), 0.0, 1.0);
     vec4 p3 = vec4(mtxGetElement(pos, 0, 2), mtxGetElement(pos, 1, 2), 0.0, 1.0);
 
-    p1.z = u_DmapFactor * texture2DLod(u_DmapSampler, p1.xy, 0).r;
-    p2.z = u_DmapFactor * texture2DLod(u_DmapSampler, p2.xy, 0).r;
-    p3.z = u_DmapFactor * texture2DLod(u_DmapSampler, p3.xy, 0).r;
+    // p1.z = u_DmapFactor * texture2DLod(u_DmapSampler, p1.xy, 0).r;
+    // p2.z = u_DmapFactor * texture2DLod(u_DmapSampler, p2.xy, 0).r;
+    // p3.z = u_DmapFactor * texture2DLod(u_DmapSampler, p3.xy, 0).r;
 
     triangleVertices[0] = p1;
     triangleVertices[1] = p2;

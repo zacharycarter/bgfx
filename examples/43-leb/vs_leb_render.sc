@@ -5,7 +5,7 @@ $output v_texcoord0, v_wpos
 #include "fcull.sh"
 
 SAMPLER2D(u_DmapSampler, 0);
-BUFFER_RO(u_CbtBuffer, uint, 1);
+BUFFER_RO(u_CbtBuffer, uint, 2);
 
 #include "leb.sh"
 
